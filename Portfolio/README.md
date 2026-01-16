@@ -97,6 +97,32 @@ A responsive personal portfolio website built as part of the **Coding Samurai We
 - Accessibility features
 - Fast loading performance
 
+## 📸 Screenshots
+
+### Home Section
+![Portfolio Home Page](screenshots/Home-Page.png)
+*Hero section featuring professional introduction, animated elements, and call-to-action buttons*
+
+### About Me Section
+![About Me](screenshots/About.png)
+*Personal introduction showcasing educational background, current role at Zidio Development, and professional summary*
+
+### Skills Section
+![Technical Skills](screenshots/Skills.png)
+*Comprehensive display of technical skills including Frontend technologies, tools, and design principles with proficiency indicators*
+
+### Projects Section
+![Projects Showcase](screenshots/Projects.png)
+*Project cards with hover effects, detailed descriptions, technology stacks, and links to GitHub repositories and live demos*
+
+### Certifications Section
+![Professional Certifications](screenshots/Certificates.png)
+*Display of professional certifications and course completion achievements*
+
+### Contact Section
+![Contact Form](screenshots/Contact.png)
+*Working contact form with email, social media links, and professional networking options*
+
 ## 📂 Project Structure
 
 ```
