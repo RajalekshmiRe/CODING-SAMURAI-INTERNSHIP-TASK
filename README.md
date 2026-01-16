@@ -15,6 +15,24 @@
 
 This repository contains my completed projects for the Coding Samurai Web Development Internship. The internship focuses on building practical, real-world web applications using modern technologies and best practices.
 
+## 🎨 Project Previews
+
+### Personal Portfolio Website
+![Portfolio Preview](screenshots/portfolio-preview.png)
+*A responsive personal portfolio showcasing skills, projects, and professional information with modern UI/UX design*
+
+**[View Project Details →](./Portfolio)**
+
+---
+
+### FitTrack Pro - Responsive Landing Page
+![Landing Page Preview](screenshots/landing-page-preview.png)
+*Modern, responsive landing page for an AI-powered fitness tracking application with engaging features and pricing sections*
+
+**[View Project Details →](./Responsive-Landing-Page)**
+
+---
+
 ## 🚀 Projects Included
 
 ### 1. [Personal Portfolio Website](https://github.com/RajalekshmiRe/CODING-SAMURAI-INTERNSHIP-TASK/tree/main/Portfolio)
@@ -52,6 +70,10 @@ This repository contains my completed projects for the Coding Samurai Web Develo
 
 ```
 CODING-SAMURAI-INTERNSHIP-TASK/
+│
+├── screenshots/
+│   ├── portfolio-preview.png
+│   └── landing-page-preview.png
 │
 ├── Portfolio/
 │   ├── index.html
