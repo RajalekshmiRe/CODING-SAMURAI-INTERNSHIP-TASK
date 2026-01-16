@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,27 +27,8 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
-
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
@@ -105,22 +86,42 @@
             transition: width 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
         .nav-links a:hover::after {
             width: 100%;
         }
 
         /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
         .hero-content {
             position: relative;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 10rem 2rem 4rem;
             text-align: center;
             z-index: 1;
+            padding: 2rem;
         }
 
         .hero-badge {
@@ -132,20 +133,13 @@
             font-weight: 600;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         .hero h1 {
             font-size: 4.5rem;
             font-weight: 900;
-            margin-bottom: 1rem;
             color: white;
-            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
         .gradient-text {
@@ -153,13 +147,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            background-size: 200% auto;
-            animation: gradientShift 3s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% center; }
-            50% { background-position: 100% center; }
         }
 
         .hero-subtitle {
@@ -172,18 +159,14 @@
         .hero-typing {
             font-size: 1.8rem;
             color: #fbbf24;
-            margin-bottom: 3rem;
             font-weight: 700;
             min-height: 2.5rem;
+            margin-top: 1rem;
         }
 
         .typing-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1.5em;
-            background: #fbbf24;
+            border-right: 3px solid #fbbf24;
             animation: blink 1s infinite;
-            margin-left: 3px;
         }
 
         @keyframes blink {
@@ -191,37 +174,10 @@
             51%, 100% { opacity: 0; }
         }
 
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-
-        .hero-stat-item {
-            text-align: center;
-        }
-
-        .hero-stat-item strong {
-            display: block;
-            font-size: 3rem;
-            font-weight: 900;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-stat-item span {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
         .cta-buttons {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
-            flex-wrap: wrap;
             margin-top: 3rem;
         }
 
@@ -250,13 +206,11 @@
             background: rgba(255, 255, 255, 0.2);
             color: white;
             border: 2px solid white;
-            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
             background: white;
             color: var(--primary);
-            transform: translateY(-5px);
         }
 
         /* Sections */
@@ -272,9 +226,6 @@
             text-align: center;
             margin-bottom: 1rem;
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .section-title::after {
@@ -333,7 +284,7 @@
             box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
         }
 
-        .stat-number {
+        .stat-card h3 {
             font-size: 3rem;
             font-weight: 900;
             background: var(--gradient);
@@ -342,7 +293,7 @@
             background-clip: text;
         }
 
-        .stat-label {
+        .stat-card p {
             color: #64748b;
             margin-top: 0.5rem;
             font-weight: 600;
@@ -405,10 +356,76 @@
             transition: width 1.5s ease;
         }
 
+        /* Certificates Section */
+        #certificates {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+        }
+
+        .certificate-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .certificate-issuer {
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-date {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .certificate-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 3rem;
         }
 
@@ -425,95 +442,42 @@
             box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
         }
 
-        .project-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
-
-        .project-header {
-            padding: 2rem;
-            background: var(--gradient);
-        }
-
-        .project-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.8rem;
-        }
-
-        .deployment-badge {
-            display: inline-block;
-            background: white;
-            color: #10b981;
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-
         .project-body {
             padding: 2rem;
         }
 
-        .project-description {
+        .project-body h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .project-body p {
             color: #475569;
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
 
-        .project-info {
-            background: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary);
-        }
-
-        .project-info p {
-            margin: 0.8rem 0;
-            color: var(--dark);
-        }
-
-        .project-info strong {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
-        }
-
         .tech-tag {
-            background: var(--gradient);
-            color: white;
-            padding: 0.5rem 1.2rem;
+            background: #f1f5f9;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 600;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .project-link {
-            flex: 1;
-            text-align: center;
-            padding: 1rem;
+            display: inline-block;
+            padding: 1rem 2rem;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
+            margin-top: 1rem;
             transition: all 0.3s;
         }
 
@@ -525,32 +489,6 @@
         .live-demo:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-        }
-
-        .github-link {
-            background: #f1f5f9;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .github-link:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .admin-note {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            padding: 2rem;
-            border-radius: 20px;
-            margin-top: 3rem;
-            border: 3px solid #fbbf24;
-            text-align: center;
-        }
-
-        .admin-note p {
-            color: #78350f;
-            font-size: 1.1rem;
-            font-weight: 600;
         }
 
         /* Contact Section */
@@ -577,12 +515,6 @@
             font-size: 1.1rem;
         }
 
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
         .social-link {
             display: flex;
             align-items: center;
@@ -595,16 +527,13 @@
             transition: all 0.3s;
             border: 2px solid #e2e8f0;
             font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         .social-link:hover {
             border-color: var(--primary);
             transform: translateX(10px);
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-        }
-
-        .social-link span:first-child {
-            font-size: 1.5rem;
         }
 
         .contact-form {
@@ -684,7 +613,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .projects-grid {
+            .projects-grid,
+            .certificates-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -706,6 +636,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -719,24 +650,9 @@
             <p class="hero-subtitle">MCA Student | Full Stack Developer</p>
             <p class="hero-typing"><span id="typing-text"></span><span class="typing-cursor"></span></p>
             
-            <div class="hero-stats">
-                <div class="hero-stat-item">
-                    <strong>2</strong>
-                    <span>Live Projects</span>
-                </div>
-                <div class="hero-stat-item">
-                    <strong>4</strong>
-                    <span>Internships</span>
-                </div>
-                <div class="hero-stat-item">
-                    <strong>3</strong>
-                    <span>Active Now</span>
-                </div>
-            </div>
-
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View Live Projects →</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
             </div>
         </div>
     </section>
@@ -746,26 +662,13 @@
         <div class="about-content">
             <div class="about-text">
                 <p>Hello! I'm Rajalekshmi Reji, a passionate MCA student and full-stack developer from Kottayam, Kerala. I specialize in MERN stack development and have hands-on experience building scalable web applications.</p>
-                <p>Currently pursuing my Master of Computer Applications at Ilahia College of Engineering & Technology. I completed a 3-month Web Developer Internship at Zidio Development, where I built 2 production-ready projects. Currently, I'm gaining experience through 3 simultaneous internships: Full Stack Development at InternVision (2 months), Web Development at Coding Samurai (1 month), and Machine Learning at Certify Technologies (1 month).</p>
-                <p>With expertise in Python, JavaScript, React, Node.js, and Django, I enjoy tackling challenging projects that solve real-world problems. Both my live projects feature complete user registration and authentication systems that anyone can try. I'm also an NSS volunteer with 50+ hours of community service.</p>
+                <p>Currently pursuing my MCA at Ilahia College, I've completed a Web Developer Internship at Zidio Development and am currently active in 3 simultaneous internships focusing on Full Stack, Web Dev, and Machine Learning.</p>
             </div>
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Live Projects</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Internships</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Currently Active</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">NSS Hours</div>
-                </div>
+                <div class="stat-card"><h3>2</h3><p>Live Projects</p></div>
+                <div class="stat-card"><h3>4</h3><p>Internships</p></div>
+                <div class="stat-card"><h3>6+</h3><p>Certificates</p></div>
+                <div class="stat-card"><h3>50+</h3><p>NSS Hours</p></div>
             </div>
         </div>
     </section>
@@ -868,64 +771,92 @@
         </div>
     </section>
 
-    <section id="projects" class="fade-in">
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Production-ready applications with complete user registration - Try them yourself!</p>
-        
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="images/excel-analytics.png" alt="Excel Analytics Platform" class="project-image">
-                <div class="project-header">
-                    <h3 class="project-title">Excel Analytics Platform</h3>
-                    <span class="deployment-badge">🚀 Live & Production Ready</span>
-                </div>
-                <div class="project-body">
-                    <p class="project-description">Full-stack MERN application with Excel file processing (15MB+), 2D/3D Chart.js visualizations, and 3-tier role-based access control (User, Admin, SuperAdmin). Features complete user registration and authentication. New users can register to access the User dashboard.</p>
-                    <div class="project-info">
-                        <p><strong>Architecture:</strong> 3-Tier (User, Admin, SuperAdmin)</p>
-                        <p><strong>Features:</strong> File upload, Chart visualizations, Role-based access</p>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Chart.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://excel-analytics-platform-ivory.vercel.app" target="_blank" class="project-link live-demo">Try Live Demo →</a>
-                        <a href="https://github.com/RajalekshmiRe/Excel_Analytics_Platform" target="_blank" class="project-link github-link">View Code</a>
-                    </div>
-                </div>
-            </div>
+    <section id="certificates" class="fade-in">
+    <h2 class="section-title">Certificates & Achievements</h2>
+    <p class="section-subtitle">Academic, professional & national-level recognitions</p>
 
-            <div class="project-card">
-                <img src="images/blogsphere.png" alt="Blogsphere Platform" class="project-image">
-                <div class="project-header">
-                    <h3 class="project-title">Blogsphere</h3>
-                    <span class="deployment-badge">🚀 Live & Production Ready</span>
-                </div>
-                <div class="project-body">
-                    <p class="project-description">Full-featured MERN blogging platform with JWT authentication, complete CRUD operations, and 15+ RESTful API endpoints. Features 2-tier architecture with User and Admin roles. Includes rich text editor and comprehensive API testing. New users can register to create and manage blogs.</p>
-                    <div class="project-info">
-                        <p><strong>Architecture:</strong> 2-Tier (User, Admin)</p>
-                        <p><strong>Features:</strong> Blog CRUD, JWT Auth, Rich text editor</p>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">JWT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://blogging-platform-ecru.vercel.app" target="_blank" class="project-link live-demo">Try Live Demo →</a>
-                        <a href="https://github.com/RajalekshmiRe/Blogsphere" target="_blank" class="project-link github-link">View Code</a>
-                    </div>
-                </div>
+    <div class="certificates-grid">
+
+        <!-- Diploma Certificate -->
+        <div class="certificate-card">
+            <img src="images/diploma-certificate.png" alt="Diploma Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <h3 class="certificate-title">Diploma in Logistics & Supply Chain Management</h3>
+                <p class="certificate-issuer">Professional Diploma Program</p>
+                <p class="certificate-date">2023</p>
+                <span class="certificate-badge">✓ Completed</span>
             </div>
         </div>
 
-        <div class="admin-note">
-            <p>💡 <strong>Note for Recruiters:</strong> Both projects have fully functional user modules that anyone can access by registering. For Admin/SuperAdmin access demonstrations, please contact me directly.</p>
+        <!-- National Science Achievement -->
+        <div class="certificate-card">
+            <img src="images/nationalsciencecertificate.png" alt="National Science Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <h3 class="certificate-title">3rd Prize – National Science Still Model</h3>
+                <p class="certificate-issuer">National Level Competition, Cuttack</p>
+                <p class="certificate-date">National Achievement</p>
+                <span class="certificate-badge">🏆 Awarded</span>
+            </div>
+        </div>
+
+        <!-- Cloud Computing Certificate -->
+        <div class="certificate-card">
+            <img src="images/nptel-certificate.png" alt="Cloud Computing Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <h3 class="certificate-title">Cloud Computing Certification</h3>
+                <p class="certificate-issuer">NBTL</p>
+                <p class="certificate-date">2024</p>
+                <span class="certificate-badge">✓ Certified</span>
+            </div>
+        </div>
+
+        <!-- NSES Participation -->
+        <div class="certificate-card">
+            <img src="images/nss-certificate.png" alt="NSES Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <h3 class="certificate-title">NSES Participation & Volunteer Certificate</h3>
+                <p class="certificate-issuer">National Science & Engineering Symposium</p>
+                <p class="certificate-date">Volunteer</p>
+                <span class="certificate-badge">✓ Participated</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <section id="projects" class="fade-in">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Production-ready applications with complete user registration</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-body">
+                    <h3>Excel Analytics Platform</h3>
+                    <p>MERN stack application with 3-tier role-based access control, Excel file processing (15MB+), and Chart.js visualizations.</p>
+                    <div>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                    <a href="https://excel-analytics-platform-ivory.vercel.app" target="_blank" class="project-link live-demo">Try Live Demo →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-body">
+                    <h3>Blogsphere</h3>
+                    <p>Full-featured blogging platform with JWT authentication, CRUD operations, and rich text editing capabilities.</p>
+                    <div>
+                        <span class="tech-tag">MERN</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">Redux</span>
+                    </div>
+                    <a href="https://blogging-platform-ecru.vercel.app" target="_blank" class="project-link live-demo">Try Live Demo →</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -934,317 +865,105 @@
         <div class="contact-grid">
             <div class="contact-info">
                 <h3>Let's Connect!</h3>
-                <p>I'm always open to discussing new projects, creative ideas, internship opportunities, or potential collaborations. Currently actively seeking full-time opportunities upon MCA completion!</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/rajalekshmi-reji" target="_blank" class="social-link">
-                        <span>💼</span>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/RajalekshmiRe" target="_blank" class="social-link">
-                        <span>💻</span>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="mailto:rajalekshmireji07@gmail.com" class="social-link">
-                        <span>📧</span>
-                        <span>rajalekshmireji07@gmail.com</span>
-                    </a>
-                </div>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to collaborate.</p>
+                <a href="https://www.linkedin.com/in/rajalekshmi-reji" target="_blank" class="social-link">
+                    <span>💼</span>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/RajalekshmiRe" target="_blank" class="social-link">
+                    <span>💻</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="mailto:rajalekshmireji07@gmail.com" class="social-link">
+                    <span>📧</span>
+                                        <span>Email Me</span>
+                </a>
             </div>
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <label>Your Name</label>
-                    <input type="text" required placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label>Your Email</label>
-                    <input type="email" required placeholder="john@example.com">
-                </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea required placeholder="Your message here..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-            </form>
+
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="Write your message..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Rajalekshmi Reji. All Rights Reserved. Built with 💜</p>
+        <p>© 2026 Rajalekshmi Reji. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        // Typing Effect
-        const typingText = document.getElementById('typing-text');
-        const phrases = ['MERN Stack Expert', 'Django Developer', 'Problem Solver', 'Fast Learner'];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        /* Typing Effect */
+        const textArray = [
+            "Full Stack Developer",
+            "MERN Stack Enthusiast",
+            "Web Developer",
+            "Machine Learning Learner"
+        ];
 
-        function type() {
-            const current = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = current.substring(0, charIndex + 1);
+        let index = 0;
+        let charIndex = 0;
+        const typingText = document.getElementById("typing-text");
+
+        function typeEffect() {
+            if (charIndex < textArray[index].length) {
+                typingText.textContent += textArray[index].charAt(charIndex);
                 charIndex++;
-            }
-            
-            if (!isDeleting && charIndex === current.length) {
-                isDeleting = true;
-                setTimeout(type, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(type, 500);
+                setTimeout(typeEffect, 100);
             } else {
-                setTimeout(type, isDeleting ? 50 : 100);
+                setTimeout(eraseEffect, 2000);
             }
         }
 
-        type();
+        function eraseEffect() {
+            if (charIndex > 0) {
+                typingText.textContent = textArray[index].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseEffect, 50);
+            } else {
+                index = (index + 1) % textArray.length;
+                setTimeout(typeEffect, 500);
+            }
+        }
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        document.addEventListener("DOMContentLoaded", typeEffect);
 
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+        /* Fade-in on Scroll */
+        const faders = document.querySelectorAll(".fade-in");
+
+        const appearOptions = {
+            threshold: 0.2
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target);
             });
-        }, observerOptions);
+        }, appearOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon. 💜');
-            e.target.reset();
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
         });
-    </script>
-</body>
-</html> -->
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajalekshmi Reji - Full Stack Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        /* ... Keep all your existing CSS styles here ... */
-        
-        /* Added smooth scrolling for the whole page */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Existing CSS from your snippet */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        body { font-family: 'Inter', sans-serif; color: var(--dark); overflow-x: hidden; }
-        .hero { position: relative; min-height: 100vh; background: var(--gradient); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .hero::before { content: ''; position: absolute; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px; animation: moveBackground 20s linear infinite; }
-        @keyframes moveBackground { 0% { transform: translate(0, 0); } 100% { transform: translate(50px, 50px); } }
-        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1.5rem 0; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { color: var(--dark); text-decoration: none; font-weight: 600; position: relative; transition: color 0.3s; }
-        .hero-content { position: relative; max-width: 1200px; text-align: center; z-index: 1; padding: 2rem; }
-        .hero h1 { font-size: 4.5rem; font-weight: 900; color: white; margin-bottom: 1rem; }
-        .gradient-text { background: linear-gradient(135deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-typing { font-size: 1.8rem; color: #fbbf24; font-weight: 700; min-height: 2.5rem; margin-top: 1rem; }
-        .typing-cursor { border-right: 3px solid #fbbf24; animation: blink 1s infinite; }
-        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
-        section { padding: 8rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 3rem; font-weight: 800; text-align: center; margin-bottom: 4rem; position: relative; width: 100%; }
-        .about-content { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; }
-        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .stat-card { background: white; padding: 2rem; border-radius: 20px; text-align: center; border: 2px solid var(--primary); transition: 0.3s; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .skill-category { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .skill-bar { height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-top: 5px; }
-        .skill-progress { height: 100%; background: var(--gradient); transition: width 1.5s ease; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; }
-        .project-card { background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transition: 0.4s; }
-        .project-image { width: 100%; height: 250px; object-fit: cover; }
-        .project-body { padding: 2rem; }
-        .tech-tag { background: #f1f5f9; color: var(--primary); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-        .project-link { display: inline-block; padding: 0.8rem 1.5rem; border-radius: 12px; text-decoration: none; font-weight: 700; margin-top: 1rem; }
-        .live-demo { background: var(--gradient); color: white; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
-        .social-link { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: white; border-radius: 15px; text-decoration: none; color: var(--dark); border: 1px solid #e2e8f0; margin-bottom: 1rem; }
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .fade-in.active { opacity: 1; transform: translateY(0); }
-        footer { background: var(--dark); color: white; padding: 3rem; text-align: center; }
-        @media (max-width: 768px) { .about-content, .contact-grid, .projects-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Rajalekshmi.</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">👋 Welcome to my portfolio</div>
-            <h1>Hi, I'm <span class="gradient-text">Rajalekshmi Reji</span></h1>
-            <p class="hero-subtitle">MCA Student | Full Stack Developer</p>
-            <p class="hero-typing"><span id="typing-text"></span><span class="typing-cursor"></span></p>
-            
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary" style="background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; margin-right: 1rem; display: inline-block;">View Projects</a>
-                <a href="#contact" class="btn btn-secondary" style="border: 2px solid white; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block;">Contact Me</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="fade-in">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Hello! I'm Rajalekshmi Reji, a passionate MCA student and full-stack developer from Kottayam, Kerala. I specialize in MERN stack development and have hands-on experience building scalable web applications.</p>
-                <p>Currently pursuing my MCA at Ilahia College, I've completed a Web Developer Internship at Zidio Development and am currently active in 3 simultaneous internships focusing on Full Stack, Web Dev, and Machine Learning.</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-card"><h3>2</h3><p>Live Projects</p></div>
-                <div class="stat-card"><h3>4</h3><p>Internships</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="fade-in">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-body">
-                    <h3>Excel Analytics Platform</h3>
-                    <p>MERN stack application with 3-tier role-based access control and file processing.</p>
-                    <div style="margin: 1rem 0;">
-                        <span class="tech-tag">React</span> <span class="tech-tag">Node.js</span> <span class="tech-tag">MongoDB</span>
-                    </div>
-                    <a href="https://excel-analytics-platform-ivory.vercel.app" target="_blank" class="project-link live-demo">Try Live Demo</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-body">
-                    <h3>Blogsphere</h3>
-                    <p>Full-featured blogging platform with JWT authentication and rich text editing.</p>
-                    <div style="margin: 1rem 0;">
-                        <span class="tech-tag">MERN</span> <span class="tech-tag">JWT</span> <span class="tech-tag">REST API</span>
-                    </div>
-                    <a href="https://blogging-platform-ecru.vercel.app" target="_blank" class="project-link live-demo">Try Live Demo</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="fade-in">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <a href="https://www.linkedin.com/in/rajalekshmi-reji" target="_blank" class="social-link">LinkedIn</a>
-                <a href="https://github.com/RajalekshmiRe" target="_blank" class="social-link">GitHub</a>
-                <a href="mailto:rajalekshmireji07@gmail.com" class="social-link">Email Me</a>
-            </div>
-            <form id="contactForm">
-                <p>Ready to collaborate? Send me an email directly!</p>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Rajalekshmi Reji. Built with 💜</p>
-    </footer>
-
-    <script>
-        // --- 1. Completed Typing Effect Logic ---
-        const typingText = document.getElementById('typing-text');
-        const phrases = ['MERN Stack Expert', 'Django Developer', 'Problem Solver', 'Fast Learner'];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typeSpeed = 150;
-
-        function type() {
-            const current = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 75; // Faster when deleting
-            } else {
-                typingText.textContent = current.substring(0, charIndex + 1);
-                charIndex++;
-                typeSpeed = 150;
-            }
-            
-            if (!isDeleting && charIndex === current.length) {
-                isDeleting = true;
-                typeSpeed = 2000; // Pause at end
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-            
-            setTimeout(type, typeSpeed);
-        }
-
-        // --- 2. Scroll Reveal Animation Logic ---
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Initialize typing
-        window.onload = () => {
-            type();
-        };
     </script>
 </body>
 </html>
+
+
