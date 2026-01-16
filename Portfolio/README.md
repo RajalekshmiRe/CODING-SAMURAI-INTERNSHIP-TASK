@@ -124,20 +124,29 @@ A responsive personal portfolio website built as part of the **Coding Samurai We
 *Working contact form with email, social media links, and professional networking options*
 
 ## 📂 Project Structure
-
 ```
 Portfolio/
 │
 ├── index.html          # Main HTML file with semantic structure
 ├── style.css           # Comprehensive stylesheet
 ├── script.js           # JavaScript for interactivity
-├── README.md          # Project documentation (this file)
+├── README.md           # Project documentation (this file)
 │
-└── images/            # Image assets
-    ├── profile.jpg    # Profile/hero image
-    ├── project1.jpg   # Project screenshots
-    ├── project2.jpg
-    └── icons/         # Skill icons and logos
+├── images/             # Certificate images
+│   ├── blogsphere.png
+│   ├── diploma-certificate.png
+│   ├── excel-analytics.png
+│   ├── nationalsciencecertificate.png
+│   ├── nptel-certificate.png
+│   └── nss-certificate.png
+│
+└── screenshots/        # Documentation screenshots
+    ├── Home-Page.png
+    ├── About.png
+    ├── Skills.png
+    ├── Projects.png
+    ├── Certificates.png
+    └── Contact.png
 ```
 
 ## 🚀 How to Run
