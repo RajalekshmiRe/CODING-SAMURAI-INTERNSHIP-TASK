@@ -89,19 +89,36 @@ A modern, fully responsive landing page designed for **FitTrack Pro**, a fiction
 - Active section highlighting
 - Sticky navigation (optional)
 
-## 📂 Project Structure
+## 📸 Screenshots
 
+### Hero Section
+![FitTrack Pro Hero Section](screenshots/HERO.png)
+*Eye-catching hero section with compelling headline "Transform Your Fitness Journey with AI", strong call-to-action, and professional design*
+
+### Features Section
+![Key Features Display](screenshots/Features.png)
+*Showcase of FitTrack Pro's core features including AI-Powered Workout Plans, Real-Time Progress Tracking, Nutrition Guidance, and Community Support with responsive grid layout*
+
+### Pricing Plans
+![Pricing Tiers](screenshots/Pricing.png)
+*Three-tier pricing structure (Free, Premium, Pro) with feature comparison, highlighted recommended plan, and clear call-to-action buttons*
+
+### Sign-Up Form
+![Get Started Form](screenshots/Get-Started.png)
+*User-friendly contact form with HTML5 validation, responsive design, and engaging layout for easy user registration*
+
+## 📂 Project Structure
 ```
 Responsive-Landing-Page/
 │
 ├── index.html          # Main HTML file with semantic structure
-├── README.md          # Project documentation (this file)
+├── README.md           # Project documentation (this file)
 │
-└── images/            # Image assets (optional folder)
-    ├── hero-bg.jpg
-    ├── feature-icon1.png
-    ├── feature-icon2.png
-    └── logo.png
+└── screenshots/        # Documentation screenshots
+    ├── HERO.png
+    ├── Features.png
+    ├── Pricing.png
+    └── Get-Started.png
 ```
 
 ## 📱 Responsive Design Breakpoints
