@@ -18,7 +18,7 @@ This repository contains my completed projects for the Coding Samurai Web Develo
 ## 🎨 Project Previews
 
 ### Personal Portfolio Website
-![Portfolio Preview](screenshots/portfolio-preview.png)
+![Portfolio Preview](screenshots/portfolio-interface.png)
 *A responsive personal portfolio showcasing skills, projects, and professional information with modern UI/UX design*
 
 **[View Project Details →](./Portfolio)**
@@ -26,7 +26,7 @@ This repository contains my completed projects for the Coding Samurai Web Develo
 ---
 
 ### FitTrack Pro - Responsive Landing Page
-![Landing Page Preview](screenshots/landing-page-preview.png)
+![Landing Page Preview](screenshots/responsive-landing-page-interface.png)
 *Modern, responsive landing page for an AI-powered fitness tracking application with engaging features and pricing sections*
 
 **[View Project Details →](./Responsive-Landing-Page)**
