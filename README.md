@@ -67,27 +67,27 @@ This repository contains my completed projects for the Coding Samurai Web Develo
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
 ## 📂 Repository Structure
-
 ```
 CODING-SAMURAI-INTERNSHIP-TASK/
 │
-├── screenshots/
-│   ├── portfolio-preview.png
-│   └── landing-page-preview.png
+├── screenshots/                           # Main repository screenshots
+│   ├── portfolio-interface.png
+│   └── responsive-landing-page-interface.png
 │
-├── Portfolio/
+├── Portfolio/                             # Project 1: Personal Portfolio
 │   ├── index.html
 │   ├── style.css
 │   ├── script.js
-│   ├── images/
+│   ├── images/                            # Certificate images
+│   ├── screenshots/                       # Project documentation
 │   └── README.md
 │
-├── Responsive-Landing-Page/
+├── Responsive-Landing-Page/               # Project 2: Landing Page
 │   ├── index.html
-│   ├── README.md
-│   └── (other files)
+│   ├── screenshots/                       # Project documentation
+│   └── README.md
 │
-└── README.md (this file)
+└── README.md                              # Main repository documentation (this file)
 ```
 
 ## 🎯 Learning Outcomes
